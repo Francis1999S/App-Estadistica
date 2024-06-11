@@ -1,0 +1,233 @@
+.Container_Global {
+    margin: 0;
+    padding: 30px 0 30px 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(40,40,40);
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    .Button_Type_1 {
+        animation-name: Intro_Component_Animation;
+        animation-duration: .5s;
+        cursor: pointer;
+        transition: .3s;
+        margin: 20px 0 20px 0;
+        padding: 10px 20px 10px 20px;
+        font-family: Quicksand;
+        color: white;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    box-shadow: 0 0 10px black;
+    font-weight: bold;
+    font-size: 110%;
+    }
+    .Button_Type_1:hover {
+        transition: .3s;
+        filter: brightness(130%);
+    }
+    .Button_Type_1:active {
+        transition: .1s;
+        scale: 0.7;
+        filter: brightness(80%);
+    }
+    form {
+        margin: 0;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-image: linear-gradient( 179.7deg,  rgba(249,21,215,1) 1.1%, rgba(22,0,98,1) 99% );
+        box-shadow: 0 0 10px black;
+        border-radius: 5px;
+        input {
+            transition: .3s ease-in-out;
+            margin: 20px 0 20px 0;
+            background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+            border-radius: 5px;
+            border-bottom: 3px solid white;
+            border-left: none;
+            border-top: none;
+            border-right: none;
+            padding: 10px;
+            filter: brightness(85%);
+            outline: 0px solid red;
+            color: rgb(23, 23, 23);
+            font-family: Quicksand;
+            font-size: 110%;
+            font-weight: bold;
+            box-shadow: 0 0 7px black;
+        }
+        input:focus {
+            transition: .3s;
+            filter: brightness(100%);
+        }
+        #Loader_Send {
+            animation-name: Intro_Component_Animation;
+            animation-duration: 1s;
+            height: 60px;
+            display: none;
+        }
+        #Success_Icon_Send {
+            animation-name: Intro_Component_Animation;
+            animation-duration: .5s;
+            display: none;
+            height: 60px;
+        }
+    }
+    .Data_Container_2 {
+        margin: 0;
+        padding: 30px 0 30px 0;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        flex-wrap: wrap;
+    }
+    .Data_Container {
+        margin: 0;
+        padding: 30px 0 30px 0;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+    .Boxes_Flow {
+        margin: 0;
+        padding: 20px 0 0 0;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-direction: column;
+        height: auto;
+    }
+    #Loader_Data, #Loader_Data_2 {
+        margin-left: 100px;
+        animation-name: Intro_Component_Animation;
+        animation-duration: 1s;
+        width: 100px;
+        display: flex;
+    }
+    #Loader_Data_3 {
+        animation-name: Intro_Component_Animation;
+        animation-duration: 1s;
+        width: 100px;
+        display: none;
+    }
+    .Box_Data {
+        margin: 0;
+        padding: 10px;
+        height: auto;
+        border: 1px solid rgb(0, 255, 204);
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        flex-wrap: wrap;
+        border-radius: 5px;
+        .dato_masa {
+            transition: .3s;
+            margin: 2px;
+            padding: 0;
+            width: 55px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            border: 1px solid white;
+            color: white;
+            font-size: 130%;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .dato_masa:hover {
+            transition: .3s;
+            background-color: rgba(0, 255, 255, 0.5);
+        }
+    }
+    .Header_Table_data {
+        margin: 0;
+        padding: 5px 0 5px 0;
+        width: 400px;
+        border: 1px solid rgb(230, 230, 230);
+        background-color: rgb(230,230,230);
+        color: rgb(60,60,60);
+        font-weight: bold;
+        border-radius: 5px 5px 0 0;
+            }
+    .Fila_Table_Data {
+        margin: 0;
+        padding: 0;
+        width: 400px;
+        border: 1px solid rgb(230, 230, 230);
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        .Col_1 {
+            margin: 0;
+            padding: 3px 0 3px 0;
+            width: 199px;
+            border-right: 1px solid rgb(230, 230, 230);
+            text-align: center;
+        }
+        .Col_2 {
+            margin: 0;
+            padding: 3px 0 3px 0;
+            width: 199px;
+            border-right: 1px solid rgb(230, 230, 230);
+            text-align: center;
+        }
+    }
+}
+@keyframes Intro_Component_Animation {
+    from {
+        scale: 0.9;
+        opacity: 0;
+    }
+    to {
+        scale: 1;
+        opacity: 1;
+    }
+    
+}
+@media (min-width: 769px) {
+    .Container_Global {
+        form {
+            width: 40%;
+        }
+        .Data_Container {
+            .Box_Data {
+                width: 610px;
+            }
+        }
+        .Boxes_Flow {
+            width: 45%;
+        }
+    }
+}
+@media (max-width: 768px) {
+    .Container_Global {
+        form {
+            width: 90%;
+        }
+        .Data_Container {
+            .Box_Data {
+                width: 90%;
+            }
+        }
+    }
+    .Boxes_Flow {
+        width: 95%;
+    }
+}

@@ -1,0 +1,70 @@
+<section class="Container_Global">
+    <h1>¡Bienvenidos a la Encuesta OnLine de Estudiantes!</h1>
+    <p>Created by Francis Seura <br>Tec. Sup. en Desarrollo de Software</p>
+   <form [formGroup]="Encuesta">
+        <h2>{{Mensaje_Form}}</h2>
+        <input formControlName="masa" required id="Input_Masa_Form" type="number" placeholder="Masa en Kg">
+        <input formControlName="edad" required id="Input_Edad_Form" type="number" placeholder="Edad en Años" oninput="this.value = this.value.slice(0, 2)">
+        <button id="Button_Enviar_Form" class="Button_Type_1" (click)="Enviar_Data()">Registrar</button>
+        <img id="Loader_Send" src="/Estadistica-App/assets/Icons/loader.gif" alt="loader">
+        <img id="Success_Icon_Send" src="/Estadistica-App/assets/Icons/Success_Icon.png" alt="success_image">
+    </form>
+    <section class="Data_Container">
+        <h2>Registros de Masa en Kg</h2>
+        <fieldset class="Box_Data">
+            <legend>{{Nro_Registros}} Registros</legend>
+           <div *ngFor="let dato of datos" class="dato_masa"><strong style="font-size: 50%; font-weight: 100;">{{dato.id}}</strong>{{dato.masa}}  </div>
+           <img id="Loader_Data" src="/Estadistica-App/assets/Icons/loader.gif" alt="loader_2">
+        </fieldset>
+        <h2>Registros de Edad en Años</h2>
+        <fieldset class="Box_Data">
+            <legend>{{Nro_Registros}} Registros</legend>
+            <div *ngFor="let dato of datos" class="dato_masa"><strong style="font-size: 50%; font-weight: 100;">{{dato.id}}</strong>{{dato.edad}}</div>
+            <img id="Loader_Data_2" src="/Estadistica-App/assets/Icons/loader.gif" alt="loader_3">
+        </fieldset>
+    </section>
+    <h2>Tratamiento de los datos</h2>
+    <section class="Data_Container_2">
+        <section class="Boxes_Flow">
+            <button id="Button_Generate_Table" class="Button_Type_1" (click)="GenerarTabla()">Hacer/Actualizar Cálculos</button>
+            <img id="Loader_Data_3" src="/Estadistica-App/assets/Icons/loader.gif" alt="loader_4">
+            <p class="Header_Table_data">Tabla de Frecuencias Simple</p>
+            <div class="Fila_Table_Data" style="background-color: rgb(100,100,100); font-weight: bold;">
+                <p class="Col_1">Masa (Kg)</p>
+                <p class="Col_2">Frecuencia</p>
+            </div>
+            <div class="Fila_Table_Data" *ngFor="let dato of Array_Unido">
+                <p class="Col_1">{{dato.masa}}</p>
+                <p class="Col_2">{{dato.n}}</p>
+            </div>
+            <div class="Fila_Table_Data" style="background-color: rgb(100,100,100); font-weight: bold;">
+                <p class="Col_1">Total: {{Suma_Total_Valores}}</p>
+                <p class="Col_2">Total: {{Suma_Total_Frecuencias}}</p>
+            </div>
+        </section>
+              <section class="Boxes_Flow">
+                <p style="font-weight: bold; margin-bottom: 0;">Rango (R)</p>
+                <h3><strong style="color: aquamarine; font-style: italic;">R</strong> = Xmax - Xmin = {{Xmax}} - {{Xmin}} = {{Xmax - Xmin}}</h3>
+                <p style="font-weight: bold; margin-bottom: 0;">Intervalos (K)</p>
+                <h3><strong style="color: aquamarine; font-style: italic;">k</strong> ≈ 1 + 3.322 log10 ({{Nro_Registros}}) ≈ {{IntervalosK}}</h3>
+                <p style="font-weight: bold; margin-bottom: 0;">Amplitud (A)</p>
+                <h3><strong style="color: aquamarine; font-style: italic;">A</strong> ≈ (R / K) = ({{Xmax - Xmin}} / {{IntervalosK}}) ≈ {{Amplitud_Intervalo}}</h3>
+              </section>
+
+              <section class="Boxes_Flow">
+                <p class="Header_Table_data">Tabla de Frecuencias por Intervalos</p>
+                <div class="Fila_Table_Data" style="background-color: rgb(100,100,100); font-weight: bold;">
+                    <p class="Col_1">Intervalos</p>
+                    <p class="Col_2">Frecuencia</p>
+                </div>
+                <div class="Fila_Table_Data" *ngFor="let dato of Array_Unido_Intervalos">
+                    <p class="Col_1">[{{dato.intervalo}} - {{dato.intervalo + Amplitud_Intervalo}})</p>
+                    <p class="Col_2">{{dato.n}}</p>
+                </div>
+                <div class="Fila_Table_Data" style="background-color: rgb(100,100,100); font-weight: bold;">
+                    <p class="Col_1"></p>
+                    <p class="Col_2">Total: {{Suma_Total_Frecuencias}}</p>
+                </div>
+            </section>
+    </section>
+</section>
